@@ -31,7 +31,7 @@ class Game {
                 // On teste si la lettre existe dans la fin du mot afin d'éviter les doublons
                 var alreadyInEnd = false
                 // Pour éviter les erreurs, on check que le i n'est pas à la fin du mot
-                if(i < tempInputWord.count-1){
+                if(i < tempInputWord.count){
                     alreadyInEnd = !tempInputWord[i+1..<tempInputWord.count].contains(tempInputWord[i])
                 }
                 if(alreadyInEnd){
