@@ -7,36 +7,68 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var verticalStackView: UIStackView!
+    
     @IBOutlet weak var inputWord: UITextField!
     
-    
-    var data = ["BANANA", "saturn", "satura", "BANATR"]
+    var data : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Game.verifyWord(inputWord: "melpied")
+         Game.setChosenWord(word: "BANANE")
         
-        verticalStackView.alignment = .center
+         verticalStackView.alignment = .center
+        
+        Game.verifyWord(inputWord: "BANANE")
 
         
-        data.forEach {
-            addRows(mot: $0)
+        var defaultWord = String(Game.getChosenWord().first!)
+        let lenWord = Game.getChosenWord().count
+        for _ in 1..<lenWord  {
+            defaultWord = String(defaultWord) + "."
         }
-       
-    }
 
-    @IBAction func pushBtn(_ sender: Any) {
-        addRows(mot: "NOUVEA")
+        for _ in 0..<7  {
+            Game.setWords(word: defaultWord)
+        }
+        
+        createTable(words: Game.getWords())
+        
     }
+    
+   
+    @IBAction func pushBtn(_ sender: Any) {
+        
+        let word = inputWord.text!.uppercased()
+       
+        if(word != "") {
+            addRows(mot: word)
+        }
+
+    }
+    
+
+    
+    func createTable(words:[String]) {
+        for i in 0..<words.count  {
+            addRows(mot:words[i])
+        }
+    }
+    
+    
+    
+    
     
     
     func addRows(mot:String) {
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
         print("mot :"+mot)
+        
+        data.append(mot)
+        
         var ctn = 0
         mot.forEach {
             print("lettre :"+String($0))
@@ -62,5 +94,6 @@ class ViewController: UIViewController {
         verticalStackView.addArrangedSubview(horizontalStackView)
     }
 }
+
 
 

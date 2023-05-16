@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-Ob-LOK">
-                                <rect key="frame" x="0.0" y="159" width="409" height="336"/>
+                                <rect key="frame" x="0.0" y="159" width="409" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-66-J8G">
@@ -40,6 +40,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
                         <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="lA1-rf-pQR"/>
                     </connections>
                 </viewController>
