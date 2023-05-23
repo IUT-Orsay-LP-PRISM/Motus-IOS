@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Match" representedClassName="Match" syncable="YES" codeGenerationType="class">
+        <attribute name="numberTries" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="victory" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MatchSet" representedClassName="MatchSet" syncable="YES" codeGenerationType="class">
+        <attribute name="beginTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="hashedPassword" optional="YES" attributeType="String"/>
+        <attribute name="login" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Match" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="MatchSet" positionX="-36" positionY="45" width="128" height="74"/>
+    </elements>
+</model>
