@@ -58,7 +58,7 @@ class Game {
     }
     
     // Transformer les mots en tableaux, puisque Swift ne veut pas utiliser les String comme des tableaux de charactères
-    public static func tablify(word: String)-> [Character]{
+    public static func tablify(word: String) -> [Character]{
         var tempWord = word
         var letters : [Character] = []
         for char in word{
@@ -67,5 +67,24 @@ class Game {
         }
         return letters
     }
+    
+    
+    public static func setChosenWord(word:String) {
+        chosenWord = word
+    }
+    
+    public static func getChosenWord() -> String{
+        return chosenWord
+    }
+    
+    
+    
+    public static func getWords() -> [String] {
+        return words
+    }
+    public static func setWords(word:String) {
+        words.append(word)
+    }
+    
     
 }
