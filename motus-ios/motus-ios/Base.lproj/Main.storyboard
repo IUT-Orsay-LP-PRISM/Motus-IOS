@@ -16,36 +16,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-Ob-LOK">
-                                <rect key="frame" x="0.0" y="159" width="409" height="350"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-Ob-LOK">
+                                <rect key="frame" x="2" y="150" width="409.5" height="350"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-66-J8G">
-                                <rect key="frame" x="279" y="675" width="57" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-66-J8G">
+                                <rect key="frame" x="287" y="704" width="98" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Push"/>
                                 <connections>
                                     <action selector="pushBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7JJ-Pb-6DL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-xR-Og2">
-                                <rect key="frame" x="99" y="672" width="172" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-bR-lBw">
+                                <rect key="frame" x="20" y="768" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="XBQ-xR-Og2">
+                                <rect key="frame" x="20" y="701" width="250" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zyn-66-J8G" secondAttribute="trailing" constant="29" id="2JL-fG-5hq"/>
+                            <constraint firstItem="XBQ-xR-Og2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7yJ-7U-EbQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XBQ-xR-Og2" secondAttribute="trailing" constant="124" id="EMC-Hx-9fu"/>
+                            <constraint firstItem="zyn-66-J8G" firstAttribute="top" secondItem="Di0-Ob-LOK" secondAttribute="bottom" constant="166" id="G60-Yv-X0D"/>
+                            <constraint firstItem="XBQ-xR-Og2" firstAttribute="top" secondItem="Di0-Ob-LOK" secondAttribute="bottom" constant="163" id="GAU-4r-8am"/>
+                            <constraint firstItem="cKG-bR-lBw" firstAttribute="top" secondItem="XBQ-xR-Og2" secondAttribute="bottom" constant="33" id="JIB-bh-kRJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Di0-Ob-LOK" secondAttribute="trailing" constant="2.5" id="Qdi-n5-Pzb"/>
+                            <constraint firstItem="zyn-66-J8G" firstAttribute="leading" secondItem="XBQ-xR-Og2" secondAttribute="trailing" constant="17" id="Yw6-4R-xVe"/>
+                            <constraint firstItem="Di0-Ob-LOK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="caW-Hn-m0l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cKG-bR-lBw" secondAttribute="bottom" constant="94" id="f0t-hE-dmo"/>
+                            <constraint firstItem="cKG-bR-lBw" firstAttribute="top" secondItem="zyn-66-J8G" secondAttribute="bottom" constant="33" id="gHa-Py-7gg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cKG-bR-lBw" secondAttribute="trailing" constant="20" id="gjQ-sc-jp8"/>
+                            <constraint firstItem="cKG-bR-lBw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4c-sA-b7W"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
+                        <outlet property="labelError" destination="cKG-bR-lBw" id="Hgb-fG-OHZ"/>
                         <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="lA1-rf-pQR"/>
                     </connections>
                 </viewController>

@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var data : [String] = []
     
  
+    @IBOutlet weak var labelError: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalStackView.alignment = .center
@@ -44,19 +46,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
    
     @IBAction func pushBtn(_ sender: Any) {
-        let lapCounter = Game.getLapCounter()
-        
-        if(lapCounter <= 6) {
-        let word = inputWord.text!.uppercased()
-        var Gamewords = Game.getWords()
-        
-        Gamewords[lapCounter] = word
-        
-        Game.setWords(newWords: Gamewords)
-        createTable(words: Game.getWords())
-        Game.incrementLapCounter()
-        } else {
-            // end of game
+        if(inputWord.text!.count != Game.getChosenWord().count){
+            labelError.text! = "Votre mot n'est pas assez grand !"
+        }else{
+            labelError.text! = ""
+            let lapCounter = Game.getLapCounter()
+            
+            if(lapCounter <= 6) {
+                let word = inputWord.text!.uppercased()
+                var Gamewords = Game.getWords()
+                
+                Gamewords[lapCounter] = word
+                
+                Game.setWords(newWords: Gamewords)
+                createTable(words: Game.getWords())
+                Game.incrementLapCounter()
+            } else {
+                // end of game
+            }
         }
     }
     
