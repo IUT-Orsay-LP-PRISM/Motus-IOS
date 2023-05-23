@@ -18,17 +18,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var data : [String] = []
     
  
-    @IBOutlet weak var labelError: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         verticalStackView.alignment = .center
         
-        Game.setChosenWord(word: "BANANE")
+        Game.initialiseMatch()
         inputWord.maxLength = Game.getChosenWord().count
-        
-        //Game.verifyWord(inputWord: "BANANE")
 
+
+        // Tableau de mots vide pas defaut
         var defaultWord = String(Game.getChosenWord().first!)
         let lenWord = Game.getChosenWord().count
         for _ in 1..<lenWord  {
@@ -46,24 +44,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
    
     @IBAction func pushBtn(_ sender: Any) {
-        if(inputWord.text!.count != Game.getChosenWord().count){
-            labelError.text! = "Votre mot n'est pas assez grand !"
-        }else{
-            labelError.text! = ""
-            let lapCounter = Game.getLapCounter()
+        let lapCounter = Game.getLapCounter()
+        
+        if(lapCounter <= 6) {
+        let word = inputWord.text!.uppercased()
             
-            if(lapCounter <= 6) {
-                let word = inputWord.text!.uppercased()
-                var Gamewords = Game.getWords()
-                
-                Gamewords[lapCounter] = word
-                
-                Game.setWords(newWords: Gamewords)
-                createTable(words: Game.getWords())
-                Game.incrementLapCounter()
-            } else {
-                // end of game
-            }
+        // Debug test
+        let testResult: String = Game.checkInput(inputWord: word) ? "TRUE" : "FALSE"
+        Game.appendValueInSavedArrayCheckValue(arrayCheckedValues: Game.checkValuesArray)
+        
+        print("testResult : " + testResult)
+        print("checkValuesArray : ")
+        print(Game.checkValuesArray)
+            
+        var Gamewords = Game.getWords()
+        Gamewords[lapCounter] = word
+        
+        Game.setWords(newWords: Gamewords)
+        createTable(words: Game.getWords())
+        Game.incrementLapCounter()
+        } else {
+            // end of game
         }
     }
     
@@ -81,6 +82,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
 
+        
+        //Game.SavecheckValuesGame 
+        
+            
         var ctn = 0
         mot.forEach {
             // print("lettre :"+String($0))
@@ -95,16 +100,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             ])
             
             
-            if((ctn % 2) == 0) {
-                lbl.backgroundColor = UIColor.gray
+            
+            
+            if(Game.checkValuesArray[ctn] == 2) {
+                lbl.backgroundColor = UIColor.red
+            } else if(Game.checkValuesArray[ctn] == 1) {
+                lbl.backgroundColor = UIColor.orange
             } else {
                 lbl.backgroundColor = UIColor.white
             }
-            
-            
+
+  
             horizontalStackView.addArrangedSubview(lbl)
             ctn+=1
         }
         verticalStackView.addArrangedSubview(horizontalStackView)
+
     }
 }

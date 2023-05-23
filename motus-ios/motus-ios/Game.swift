@@ -7,58 +7,81 @@
 
 import Foundation
 class Game {
+    public static let wordLibrary: [String] = ["BANANA"] //, "run", "why"]
+    public static var chosenWord: String = "";
+    public static var matchWordArray: [Character] = []
+    public static var checkValuesArray: [Int] = []
     
-    public static var chosenWord: String = "meldois"
     public static var words : [String] = []
     public static var lapCounter = 0
+    public static var SavecheckValuesGame: [[Int]] = []
     
-    public static func verifyWord(inputWord: String){
-        // 0 : pas dans le mot
-        // 1 : pas au bon endroit
-        // 2 : bon endroit
-        var answers : [Int] = []
+    
+    
+    // -----------------------------------------------------------------------------------------------
+    // initialiseMatch() : initialisation = choix du mot, affectation des arrays matchWorkArray et
+    // checkValuesArray
+    // Retourne void
+    public static func initialiseMatch(){
+        // Choix du mot de la partie
+        chosenWord = wordLibrary.randomElement()!
         
-        // On enlève au fur et à mesure les lettres déjà vérifiées
-        var tempChosenWord = tablify(word: chosenWord.uppercased())
-        let word = tablify(word: chosenWord.uppercased())
-        let tempInputWord = tablify(word: inputWord.uppercased())
+        // Mot du match convertie en Array de caractères
+        matchWordArray = tablify(word: chosenWord)
         
-        for i in 0..<tempInputWord.count{
-            if word[i] == tempInputWord[i] {
-                answers.append(2)
-                // On enlève la lettre de notre tableau de charactères, ce qui évite les doublon
-                tempChosenWord.remove(at: tempChosenWord.firstIndex(of: tempInputWord[i]) ?? 0)
-            }else if tempChosenWord.contains(tempInputWord[i]){
-                // On teste si la lettre existe dans la fin du mot afin d'éviter les doublons
-                var alreadyInEnd = false
-                // Pour éviter les erreurs, on check que le i n'est pas à la fin du mot
-                if(i < tempInputWord.count){
-                    alreadyInEnd = !tempInputWord[i+1..<tempInputWord.count].contains(tempInputWord[i])
-                }
-                if(alreadyInEnd){
-                    answers.append(1)
-                    // On enlève la lettre de notre tableau de charactères, ce qui évite les doublon
-                    tempChosenWord.remove(at: tempChosenWord.firstIndex(of: tempInputWord[i]) ?? 0)
-                }else{
-                    // Si la lettre est contenue dans le mot, mais avant le i
-                    answers.append(0)
-                }
-            }else{
-                answers.append(0)
-            }
-        }
-        
-        // On remet les valeurs par dessus, au cas où il y aurait des erreurs
-        for i in 0..<tempInputWord.count{
-            if word[i] == tempInputWord[i] {
-                answers[i] = 2
-            }
-        }
-        // Affichage transformable en retour de tableau
-        print(answers)
+        // Initialisation de l'array de vérification avec la bonne taille
+        checkValuesArray = Array(repeating:0, count:matchWordArray.count)
     }
     
+    
+    
+    // -----------------------------------------------------------------------------------------------
+    // checkInput(inputWord: String) : vérifie l'input String de l'utilisateur (passé en paramètre)
+    // et saisit l'array contenant le statut de chaque caractère de l'input
+    // (2 = bon caractère + bonne position // 1 = bon caractère // 0 = caractère incorrèct)
+    // Retourne booléen (TRUE = mot trouvé / FALSE = mot pas trouvée)
+    static func checkInput(inputWord: String) -> Bool{
+        
+        checkValuesArray = Array(repeating: 0, count: matchWordArray.count)
+        let inputWordUpperCased = inputWord.uppercased()
+        
+        // Mot trouvée
+        if inputWordUpperCased == chosenWord.uppercased(){
+            checkValuesArray = Array(repeating: 2, count: matchWordArray.count)
+            matchWordArray = []
+            return true
+        }
+        
+        // Vérification des caractères dans le bonne position
+        let inputWordArray = tablify(word: inputWordUpperCased)
+        var workMatchWordArray = matchWordArray
+        
+        for i in 0..<matchWordArray.count{
+            if(inputWordArray[i] == workMatchWordArray[i]){
+                workMatchWordArray[i] = " "
+                checkValuesArray[i] = 2 // 2 == bonne caractère à la bonne position
+            }
+        }
+        
+        // Vérification des caractères PAS dans le bonne position
+        for i in 0..<matchWordArray.count{
+            for j in 0..<matchWordArray.count{
+                if(checkValuesArray[i] == 0){
+                    if(inputWordArray[i] == workMatchWordArray[j]){
+                        workMatchWordArray[j] = " "
+                        checkValuesArray[i] = 1 // 1 == bonne caractère PAS à la bonne position
+                        break
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    
+
     // Transformer les mots en tableaux, puisque Swift ne veut pas utiliser les String comme des tableaux de charactères
+    // Retourne tableau de caractères
     public static func tablify(word: String) -> [Character]{
         var tempWord = word
         var letters : [Character] = []
@@ -66,14 +89,15 @@ class Game {
             letters.append(char)
             tempWord.remove(at: tempWord.startIndex)
         }
+        
+        letters = letters.map{
+            return Character($0.uppercased())
+        };
         return letters
     }
     
     
-    public static func setChosenWord(word:String) {
-        chosenWord = word
-    }
-    
+
     public static func getChosenWord() -> String{
         return chosenWord
     }
@@ -96,4 +120,10 @@ class Game {
         lapCounter = lapCounter + 1
     }
     
+    
+    public static func appendValueInSavedArrayCheckValue(arrayCheckedValues:[Int]) -> Void {
+        SavecheckValuesGame.append(arrayCheckedValues)
+    }
+    
+
 }
