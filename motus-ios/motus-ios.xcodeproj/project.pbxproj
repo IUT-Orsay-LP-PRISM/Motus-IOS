@@ -15,6 +15,7 @@
 		E1725FB42A0A21D500013D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1725FB32A0A21D500013D87 /* Assets.xcassets */; };
 		E1725FB72A0A21D500013D87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1725FB52A0A21D500013D87 /* LaunchScreen.storyboard */; };
 		E178AD7D2A13AB7F00602608 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178AD7C2A13AB7F00602608 /* Game.swift */; };
+		E1B418BD2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E1725FB62A0A21D500013D87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1725FB82A0A21D500013D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E178AD7C2A13AB7F00602608 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E1725FA72A0A21D300013D87 /* AppDelegate.swift */,
 				E1725FA92A0A21D300013D87 /* SceneDelegate.swift */,
 				E1725FAB2A0A21D300013D87 /* ViewController.swift */,
+				E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */,
 				E1725FAD2A0A21D300013D87 /* Main.storyboard */,
 				E1725FB32A0A21D500013D87 /* Assets.xcassets */,
 				E1725FB52A0A21D500013D87 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B418BD2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift in Sources */,
 				E1725FB22A0A21D300013D87 /* motus_ios.xcdatamodeld in Sources */,
 				E178AD7D2A13AB7F00602608 /* Game.swift in Sources */,
 				E1725FAC2A0A21D300013D87 /* ViewController.swift in Sources */,

@@ -10,6 +10,7 @@ class Game {
     
     public static var chosenWord: String = "meldois"
     public static var words : [String] = []
+    public static var lapCounter = 0
     
     public static func verifyWord(inputWord: String){
         // 0 : pas dans le mot
@@ -82,9 +83,17 @@ class Game {
     public static func getWords() -> [String] {
         return words
     }
-    public static func setWords(word:String) {
-        words.append(word)
+    public static func setWords(newWords:[String]) {
+        words = newWords
     }
     
+    
+    public static func getLapCounter() -> Int {
+        return lapCounter
+    }
+    
+    public static func incrementLapCounter() -> Void {
+        lapCounter = lapCounter + 1
+    }
     
 }

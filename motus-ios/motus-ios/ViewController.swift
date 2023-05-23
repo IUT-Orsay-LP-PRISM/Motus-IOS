@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var verticalStackView: UIStackView!
@@ -15,63 +17,66 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var data : [String] = []
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-         Game.setChosenWord(word: "BANANE")
+        verticalStackView.alignment = .center
         
-         verticalStackView.alignment = .center
+        Game.setChosenWord(word: "BANANE")
+        inputWord.maxLength = Game.getChosenWord().count
         
-        Game.verifyWord(inputWord: "BANANE")
+        //Game.verifyWord(inputWord: "BANANE")
 
-        
         var defaultWord = String(Game.getChosenWord().first!)
         let lenWord = Game.getChosenWord().count
         for _ in 1..<lenWord  {
             defaultWord = String(defaultWord) + "."
         }
 
+        var defaultWords : [String] = []
         for _ in 0..<7  {
-            Game.setWords(word: defaultWord)
+            defaultWords.append(defaultWord)
         }
-        
+        Game.setWords(newWords: defaultWords)
         createTable(words: Game.getWords())
         
     }
     
    
     @IBAction func pushBtn(_ sender: Any) {
+        let lapCounter = Game.getLapCounter()
         
+        if(lapCounter <= 6) {
         let word = inputWord.text!.uppercased()
-       
-        if(word != "") {
-            addRows(mot: word)
+        var Gamewords = Game.getWords()
+        
+        Gamewords[lapCounter] = word
+        
+        Game.setWords(newWords: Gamewords)
+        createTable(words: Game.getWords())
+        Game.incrementLapCounter()
+        } else {
+            // end of game
         }
-
     }
     
 
     
     func createTable(words:[String]) {
+        verticalStackView.subviews.forEach{(view) in view.removeFromSuperview()}
         for i in 0..<words.count  {
             addRows(mot:words[i])
         }
     }
     
-    
-    
-    
-    
-    
+
     func addRows(mot:String) {
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
-        print("mot :"+mot)
-        
-        data.append(mot)
-        
+
         var ctn = 0
         mot.forEach {
-            print("lettre :"+String($0))
+            // print("lettre :"+String($0))
             let lbl = UILabel()
             lbl.text = String($0)
             lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -88,12 +93,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } else {
                 lbl.backgroundColor = UIColor.white
             }
+            
+            
             horizontalStackView.addArrangedSubview(lbl)
             ctn+=1
         }
         verticalStackView.addArrangedSubview(horizontalStackView)
     }
 }
-
-
-
