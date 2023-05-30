@@ -62,7 +62,22 @@
                             <constraint firstItem="cKG-bR-lBw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4c-sA-b7W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uM6-D2-5FU"/>
+                    <navigationItem key="navigationItem" id="uM6-D2-5FU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ply-p9-A6i">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xGn-yg-h9c">
+                                <rect key="frame" x="319" y="5" width="75" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Replay"/>
+                                <connections>
+                                    <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oz4-o9-Fwb"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="replay:" destination="BYZ-38-t0r" id="Q53-bx-8a3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
                         <outlet property="labelError" destination="cKG-bR-lBw" id="S9p-Ma-vjR"/>
