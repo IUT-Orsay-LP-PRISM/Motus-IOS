@@ -65,6 +65,7 @@
                     <connections>
                         <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
                         <outlet property="labelError" destination="cKG-bR-lBw" id="S9p-Ma-vjR"/>
+                        <outlet property="pushBtn" destination="zyn-66-J8G" id="5BH-jz-a4N"/>
                         <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="lA1-rf-pQR"/>
                     </connections>
                 </viewController>

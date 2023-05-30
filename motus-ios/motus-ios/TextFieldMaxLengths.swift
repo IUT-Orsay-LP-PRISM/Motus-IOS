@@ -1,48 +1,31 @@
-// Swift 3 version
-// This will NOT work with Swift 2.x!
-// ==================================
-
 import UIKit
-
-// 1
 private var maxLengths = [UITextField: Int]()
-
-// 2
 extension UITextField {
-  
-  // 3
-  @IBInspectable var maxLength: Int {
-    get {
-      // 4
-      guard let length = maxLengths[self] else {
-        return Int.max
-      }
-      return length
-    }
-    set {
-      maxLengths[self] = newValue
-      // 5
-      addTarget(
-        self,
-        action: #selector(limitLength),
-        for: UIControl.Event.editingChanged
-      )
-    }
-  }
-  
-    @objc func limitLength(textField: UITextField) {
-    // 6
-    guard let prospectiveText = textField.text,
-              prospectiveText.count > maxLength
-    else {
-      return
+    
+    @IBInspectable var maxLength: Int {
+        get {
+            guard let length = maxLengths[self] else {
+                return Int.max}
+            return length}
+        set {
+            maxLengths[self] = newValue
+            addTarget(
+                self,
+                action: #selector(limitLength),
+                for: UIControl.Event.editingChanged)
+        }
     }
     
-    let selection = selectedTextRange
-    // 7
-    let maxCharIndex = prospectiveText.index(prospectiveText.startIndex, offsetBy: maxLength)
-    text = prospectiveText.substring(to: maxCharIndex)
-    selectedTextRange = selection
-  }
-  
+    @objc func limitLength(textField: UITextField) {
+        guard let the_text = textField.text,
+              the_text.count > maxLength
+        else {
+            return
+        }
+        let selection = selectedTextRange
+        let maxCharIndex = the_text.index(the_text.startIndex, offsetBy: maxLength)
+        text = the_text.substring(to: maxCharIndex)
+        selectedTextRange = selection
+    }
+    
 }

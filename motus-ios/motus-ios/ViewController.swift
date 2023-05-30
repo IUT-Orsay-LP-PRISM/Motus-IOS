@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var inputWord: UITextField!
+    @IBOutlet weak var pushBtn: UIButton!
     
     var data : [String] = []
     
@@ -26,19 +27,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         Game.initialiseMatch()
         inputWord.maxLength = Game.getChosenWord().count
 
-
         // Tableau de mots vide pas defaut
         var defaultWord = String(Game.getChosenWord().first!)
         let lenWord = Game.getChosenWord().count
         for _ in 1..<lenWord  {
             defaultWord = String(defaultWord) + "."
         }
-
+        // Afin d'avoir une homogénéité avec le code logique
         var defaultWords : [String] = []
         for _ in 0..<7  {
             defaultWords.append(defaultWord)
         }
         Game.setWords(newWords: defaultWords)
+        
+        // Avoir l'affichage
         createTable(words: Game.getWords())
         
     }
@@ -51,26 +53,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
             labelError.text! = ""
             let lapCounter = Game.getLapCounter()
         
+            var gameWon: Bool = false
             
+            // Si le nombre d'essais est dépassé
             if(lapCounter <= 6) {
                 let word = inputWord.text!.uppercased()
-                    
-                // Debug test
-                let testResult: String = Game.checkInput(inputWord: word) ? "TRUE" : "FALSE"
+                gameWon = Game.checkInput(inputWord: word)
+                if(gameWon){
+                    labelError.text! = "Vous avez gagné"
+                    inputWord.isEnabled = false
+                    pushBtn.isEnabled = false
+                }
+
                 Game.appendValueInSavedArrayCheckValue(arrayCheckedValues: Game.checkValuesArray)
-                
-                print("testResult : " + testResult)
-                print("checkValuesArray : ")
-                print(Game.checkValuesArray)
                     
                 var Gamewords = Game.getWords()
                 Gamewords[lapCounter] = word
                 
+                // Met à jour l'affichage
                 Game.setWords(newWords: Gamewords)
                 createTable(words: Game.getWords())
                 Game.incrementLapCounter()
-            } else {
-                // end of game
+            }
+            // Si le nombre d'essais est dépassé et que la partie n'est pas gagnée
+            if(lapCounter == 6 && !gameWon){
+                labelError.text! = "Vous avez perdu"
+                inputWord.isEnabled = false
+                pushBtn.isEnabled = false
             }
         }
     }
