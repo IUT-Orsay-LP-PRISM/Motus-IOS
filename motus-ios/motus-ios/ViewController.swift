@@ -73,18 +73,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func createTable(words:[String]) {
         verticalStackView.subviews.forEach{(view) in view.removeFromSuperview()}
         for i in 0..<words.count  {
-            addRows(mot:words[i])
+            addRows(mot:words[i], index:i)
         }
+        print(Game.SavecheckValuesGame)
     }
     
 
-    func addRows(mot:String) {
+    func addRows(mot:String, index:Int) {
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
 
         
         //Game.SavecheckValuesGame 
         
+
             
         var ctn = 0
         mot.forEach {
@@ -100,16 +102,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
             ])
             
             
-            
-            
-            if(Game.checkValuesArray[ctn] == 2) {
-                lbl.backgroundColor = UIColor.red
-            } else if(Game.checkValuesArray[ctn] == 1) {
-                lbl.backgroundColor = UIColor.orange
+
+            if(index >= 0 && Game.SavecheckValuesGame.count > index)
+            {
+                if(Game.SavecheckValuesGame[index][ctn] == 2) {
+                    lbl.backgroundColor = UIColor.red
+                } else if(Game.SavecheckValuesGame[index][ctn] == 1) {
+                    lbl.backgroundColor = UIColor.orange
+                } else {
+                    lbl.backgroundColor = UIColor.white
+                }
+                
             } else {
                 lbl.backgroundColor = UIColor.white
             }
-
   
             horizontalStackView.addArrangedSubview(lbl)
             ctn+=1
