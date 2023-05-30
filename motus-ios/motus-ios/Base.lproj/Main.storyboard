@@ -66,6 +66,7 @@
                     <connections>
                         <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
                         <outlet property="labelError" destination="cKG-bR-lBw" id="S9p-Ma-vjR"/>
+                        <outlet property="pushBtn" destination="zyn-66-J8G" id="5BH-jz-a4N"/>
                         <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="lA1-rf-pQR"/>
                     </connections>
                 </viewController>
@@ -106,6 +107,7 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnPlay_StartGame:" destination="vFT-sl-SF7" eventType="touchUpInside" id="ESy-4Y-mf3"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="UzM-tZ-5LY"/>
                                 </connections>
                             </button>
@@ -134,6 +136,7 @@
                     <navigationItem key="navigationItem" id="WlM-6W-iWt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMk-jo-q6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vFT-sl-SF7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="670" y="167"/>
         </scene>
