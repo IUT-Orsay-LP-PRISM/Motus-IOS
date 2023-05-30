@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var verticalStackView: UIStackView!
     
+    @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var inputWord: UITextField!
     
     var data : [String] = []
@@ -44,27 +45,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
    
     @IBAction func pushBtn(_ sender: Any) {
-        let lapCounter = Game.getLapCounter()
+        if(inputWord.text!.count != Game.getChosenWord().count){
+            labelError.text! = "Votre mot n'est pas assez grand !"
+        }else{
+            labelError.text! = ""
+            let lapCounter = Game.getLapCounter()
         
-        if(lapCounter <= 6) {
-        let word = inputWord.text!.uppercased()
             
-        // Debug test
-        let testResult: String = Game.checkInput(inputWord: word) ? "TRUE" : "FALSE"
-        Game.appendValueInSavedArrayCheckValue(arrayCheckedValues: Game.checkValuesArray)
-        
-        print("testResult : " + testResult)
-        print("checkValuesArray : ")
-        print(Game.checkValuesArray)
-            
-        var Gamewords = Game.getWords()
-        Gamewords[lapCounter] = word
-        
-        Game.setWords(newWords: Gamewords)
-        createTable(words: Game.getWords())
-        Game.incrementLapCounter()
-        } else {
-            // end of game
+            if(lapCounter <= 6) {
+                let word = inputWord.text!.uppercased()
+                    
+                // Debug test
+                let testResult: String = Game.checkInput(inputWord: word) ? "TRUE" : "FALSE"
+                Game.appendValueInSavedArrayCheckValue(arrayCheckedValues: Game.checkValuesArray)
+                
+                print("testResult : " + testResult)
+                print("checkValuesArray : ")
+                print(Game.checkValuesArray)
+                    
+                var Gamewords = Game.getWords()
+                Gamewords[lapCounter] = word
+                
+                Game.setWords(newWords: Gamewords)
+                createTable(words: Game.getWords())
+                Game.incrementLapCounter()
+            } else {
+                // end of game
+            }
         }
     }
     
