@@ -16,9 +16,6 @@ class Game {
     public static var lapCounter = 0
     public static var SavecheckValuesGame: [[Int]] = []
     
-    
-    
-    // -----------------------------------------------------------------------------------------------
     // initialiseMatch() : initialisation = choix du mot, affectation des arrays matchWorkArray et
     // checkValuesArray
     // Retourne void
@@ -31,11 +28,12 @@ class Game {
         
         // Initialisation de l'array de vérification avec la bonne taille
         checkValuesArray = Array(repeating:0, count:matchWordArray.count)
+        
+        SavecheckValuesGame = []
+        lapCounter = 0
+        words = []
     }
     
-    
-    
-    // -----------------------------------------------------------------------------------------------
     // checkInput(inputWord: String) : vérifie l'input String de l'utilisateur (passé en paramètre)
     // et saisit l'array contenant le statut de chaque caractère de l'input
     // (2 = bon caractère + bonne position // 1 = bon caractère // 0 = caractère incorrèct)
@@ -48,7 +46,6 @@ class Game {
         // Mot trouvée
         if inputWordUpperCased == chosenWord.uppercased(){
             checkValuesArray = Array(repeating: 2, count: matchWordArray.count)
-            matchWordArray = []
             return true
         }
         
@@ -78,8 +75,6 @@ class Game {
         return false
     }
     
-    
-
     // Transformer les mots en tableaux, puisque Swift ne veut pas utiliser les String comme des tableaux de charactères
     // Retourne tableau de caractères
     public static func tablify(word: String) -> [Character]{
