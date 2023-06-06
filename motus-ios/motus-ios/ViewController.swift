@@ -11,8 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+
     @IBOutlet weak var verticalStackView: UIStackView!
-    
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var inputWord: UITextField!
     @IBOutlet weak var pushBtn: UIButton!
@@ -25,22 +25,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         pushBtn.isEnabled = true
         inputWord.isEnabled = true
         labelError.text! = ""
+        inputWord.text! = ""
         viewDidLoad()
     }
     
-    @IBAction func btnPlay_StartGame(_ sender: Any) {
-        Game.initialiseMatch()
-    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-               
-        
+                
         verticalStackView.alignment = .center
-        
-        Game.initialiseMatch()
         inputWord.maxLength = Game.getChosenWord().count
 
         // Tableau de mots vide pas defaut
@@ -55,10 +48,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             defaultWords.append(defaultWord)
         }
         Game.setWords(newWords: defaultWords)
-
         
         // Avoir l'affichage
         createTable(words: Game.getWords())
+        
     }
     
    
@@ -93,7 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             // Si le nombre d'essais est dépassé et que la partie n'est pas gagnée
             if(lapCounter == 6 && !gameWon){
-                labelError.text! = "Vous avez perdu"
+                labelError.text! = "Vous avez perdu\n"+Game.getChosenWord()
                 inputWord.isEnabled = false
                 pushBtn.isEnabled = false
             }

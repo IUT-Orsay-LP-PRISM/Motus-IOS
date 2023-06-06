@@ -14,8 +14,11 @@
 		E1725FB22A0A21D300013D87 /* motus_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1725FB02A0A21D300013D87 /* motus_ios.xcdatamodeld */; };
 		E1725FB42A0A21D500013D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1725FB32A0A21D500013D87 /* Assets.xcassets */; };
 		E1725FB72A0A21D500013D87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1725FB52A0A21D500013D87 /* LaunchScreen.storyboard */; };
-		E178AD7D2A13AB7F00602608 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178AD7C2A13AB7F00602608 /* Game.swift */; };
 		E1B418BD2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */; };
+		E1CFD7A52A2F2D9E00483E9A /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CFD7A42A2F2D9E00483E9A /* ListOfWords.swift */; };
+		E1CFD7A72A2F2DAA00483E9A /* ods6.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1CFD7A62A2F2DA900483E9A /* ods6.txt */; };
+		E1CFD7A92A2F2DDE00483E9A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CFD7A82A2F2DDE00483E9A /* Game.swift */; };
+		E1CFD7AB2A2F368900483E9A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CFD7AA2A2F368800483E9A /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +31,11 @@
 		E1725FB32A0A21D500013D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1725FB62A0A21D500013D87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1725FB82A0A21D500013D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E178AD7C2A13AB7F00602608 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMaxLengths.swift; sourceTree = "<group>"; };
+		E1CFD7A42A2F2D9E00483E9A /* ListOfWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListOfWords.swift; path = "../../../../../Downloads/Motus-IOS-RF_v2/motus-ios/motus-ios/ListOfWords.swift"; sourceTree = "<group>"; };
+		E1CFD7A62A2F2DA900483E9A /* ods6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ods6.txt; path = ../../../../../Desktop/ods6.txt; sourceTree = "<group>"; };
+		E1CFD7A82A2F2DDE00483E9A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = "../../../../../Downloads/Motus-IOS-RF_v2/motus-ios/motus-ios/Game.swift"; sourceTree = "<group>"; };
+		E1CFD7AA2A2F368800483E9A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +72,15 @@
 				E1725FA92A0A21D300013D87 /* SceneDelegate.swift */,
 				E1725FAB2A0A21D300013D87 /* ViewController.swift */,
 				E1B418BC2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift */,
+				E1CFD7A82A2F2DDE00483E9A /* Game.swift */,
+				E1CFD7A62A2F2DA900483E9A /* ods6.txt */,
+				E1CFD7A42A2F2D9E00483E9A /* ListOfWords.swift */,
 				E1725FAD2A0A21D300013D87 /* Main.storyboard */,
 				E1725FB32A0A21D500013D87 /* Assets.xcassets */,
 				E1725FB52A0A21D500013D87 /* LaunchScreen.storyboard */,
 				E1725FB82A0A21D500013D87 /* Info.plist */,
 				E1725FB02A0A21D300013D87 /* motus_ios.xcdatamodeld */,
-				E178AD7C2A13AB7F00602608 /* Game.swift */,
+				E1CFD7AA2A2F368800483E9A /* HomeController.swift */,
 			);
 			path = "motus-ios";
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 			files = (
 				E1725FB72A0A21D500013D87 /* LaunchScreen.storyboard in Resources */,
 				E1725FB42A0A21D500013D87 /* Assets.xcassets in Resources */,
+				E1CFD7A72A2F2DAA00483E9A /* ods6.txt in Resources */,
 				E1725FAF2A0A21D300013D87 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,10 +159,12 @@
 			files = (
 				E1B418BD2A1CFCB0005B3ECB /* TextFieldMaxLengths.swift in Sources */,
 				E1725FB22A0A21D300013D87 /* motus_ios.xcdatamodeld in Sources */,
-				E178AD7D2A13AB7F00602608 /* Game.swift in Sources */,
+				E1CFD7A52A2F2D9E00483E9A /* ListOfWords.swift in Sources */,
 				E1725FAC2A0A21D300013D87 /* ViewController.swift in Sources */,
+				E1CFD7AB2A2F368900483E9A /* HomeController.swift in Sources */,
 				E1725FA82A0A21D300013D87 /* AppDelegate.swift in Sources */,
 				E1725FAA2A0A21D300013D87 /* SceneDelegate.swift in Sources */,
+				E1CFD7A92A2F2DDE00483E9A /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

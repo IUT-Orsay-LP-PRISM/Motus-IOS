@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-Ob-LOK">
-                                <rect key="frame" x="2" y="150" width="409.5" height="350"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-Ob-LOK">
+                                <rect key="frame" x="2" y="150" width="409.5" height="388"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-66-J8G">
-                                <rect key="frame" x="287" y="704" width="98" height="31"/>
+                                <rect key="frame" x="287" y="704" width="107" height="31"/>
                                 <color key="tintColor" red="0.13655403260000001" green="0.15620130300000001" blue="0.193634361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Push">
@@ -29,8 +29,8 @@
                                     <action selector="pushBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7JJ-Pb-6DL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-bR-lBw">
-                                <rect key="frame" x="20" y="768" width="374" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-bR-lBw">
+                                <rect key="frame" x="20" y="768" width="374" height="73"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,47 +49,48 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99804109330000002" green="0.92636901140000005" blue="0.85496443509999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zyn-66-J8G" secondAttribute="trailing" constant="29" id="2JL-fG-5hq"/>
                             <constraint firstItem="XBQ-xR-Og2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7yJ-7U-EbQ"/>
+                            <constraint firstItem="zyn-66-J8G" firstAttribute="leading" secondItem="XBQ-xR-Og2" secondAttribute="trailing" constant="17" id="8pg-EE-lDW"/>
+                            <constraint firstItem="cKG-bR-lBw" firstAttribute="top" secondItem="zyn-66-J8G" secondAttribute="bottom" constant="33" id="AM4-VP-hEx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XBQ-xR-Og2" secondAttribute="trailing" constant="124" id="EMC-Hx-9fu"/>
-                            <constraint firstItem="zyn-66-J8G" firstAttribute="top" secondItem="Di0-Ob-LOK" secondAttribute="bottom" constant="166" id="G60-Yv-X0D"/>
                             <constraint firstItem="XBQ-xR-Og2" firstAttribute="top" secondItem="Di0-Ob-LOK" secondAttribute="bottom" constant="163" id="GAU-4r-8am"/>
                             <constraint firstItem="cKG-bR-lBw" firstAttribute="top" secondItem="XBQ-xR-Og2" secondAttribute="bottom" constant="33" id="JIB-bh-kRJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Di0-Ob-LOK" secondAttribute="trailing" constant="2.5" id="Qdi-n5-Pzb"/>
-                            <constraint firstItem="zyn-66-J8G" firstAttribute="leading" secondItem="XBQ-xR-Og2" secondAttribute="trailing" constant="17" id="Yw6-4R-xVe"/>
                             <constraint firstItem="Di0-Ob-LOK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="caW-Hn-m0l"/>
+                            <constraint firstItem="zyn-66-J8G" firstAttribute="top" secondItem="Di0-Ob-LOK" secondAttribute="bottom" constant="166" id="dUo-Pc-gME"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cKG-bR-lBw" secondAttribute="bottom" constant="94" id="f0t-hE-dmo"/>
-                            <constraint firstItem="cKG-bR-lBw" firstAttribute="top" secondItem="zyn-66-J8G" secondAttribute="bottom" constant="33" id="gHa-Py-7gg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cKG-bR-lBw" secondAttribute="trailing" constant="20" id="gjQ-sc-jp8"/>
                             <constraint firstItem="cKG-bR-lBw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4c-sA-b7W"/>
+                            <constraint firstItem="Di0-Ob-LOK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="m8y-uP-Qi0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zyn-66-J8G" secondAttribute="trailing" constant="20" id="rOz-f5-UYM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uM6-D2-5FU">
-                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ply-p9-A6i">
-                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xGn-yg-h9c">
-                                 <rect key="frame" x="319" y="5" width="75" height="34.5"/>
-                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                 <state key="normal" title="Button"/>
-                                 <buttonConfiguration key="configuration" style="plain" title="Replay"/>
-                                 <connections>
-                                     <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oz4-o9-Fwb"/>
-                                 </connections>
-                             </button>
-                             <connections>
-                                 <action selector="replay:" destination="BYZ-38-t0r" id="Q53-bx-8a3"/>
-                             </connections>
-                         </barButtonItem>
-                     </navigationItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ply-p9-A6i">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xGn-yg-h9c">
+                                <rect key="frame" x="319" y="5" width="75" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Replay"/>
+                                <connections>
+                                    <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oz4-o9-Fwb"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="replay:" destination="BYZ-38-t0r" id="Q53-bx-8a3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="inputWord" destination="XBQ-xR-Og2" id="JDf-NT-T3K"/>
                         <outlet property="labelError" destination="cKG-bR-lBw" id="S9p-Ma-vjR"/>
                         <outlet property="pushBtn" destination="zyn-66-J8G" id="5BH-jz-a4N"/>
-                        <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="lA1-rf-pQR"/>
+                        <outlet property="verticalStackView" destination="Di0-Ob-LOK" id="GCf-U5-xWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499" y="167"/>
+            <point key="canvasLocation" x="2498.5507246376815" y="166.74107142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hhN-nN-Mmg">
@@ -146,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="670" y="167"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Controller-->
         <scene sceneID="Sv3-hC-qyK">
             <objects>
-                <viewController id="UQ0-ko-SOG" sceneMemberID="viewController">
+                <viewController id="UQ0-ko-SOG" customClass="HomeController" customModule="motus_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5GE-SF-V5d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +168,8 @@
                                     <color key="baseBackgroundColor" red="0.99352353810000005" green="0.4900316596" blue="0.19378939270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="rlU-Pf-pR3"/>
+                                    <action selector="btnStart_Game:" destination="UQ0-ko-SOG" eventType="touchUpInside" id="6pf-Qe-U77"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="cqK-xL-uBk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaB-Gc-pvD">
@@ -180,6 +182,7 @@
                                     <color key="baseBackgroundColor" red="0.72939656988080004" green="0.31685794289661556" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnStart_Game:" destination="UQ0-ko-SOG" eventType="touchUpInside" id="10h-DV-nvb"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Wpe-r6-LLJ"/>
                                 </connections>
                             </button>
@@ -193,6 +196,7 @@
                                     <color key="baseBackgroundColor" red="0.41451596761247633" green="0.1804059023403019" blue="0.0037421165098014157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnStart_Game:" destination="UQ0-ko-SOG" eventType="touchUpInside" id="GYg-GL-m00"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="U5W-Dh-c3G"/>
                                 </connections>
                             </button>
@@ -206,6 +210,7 @@
                                     <color key="baseBackgroundColor" red="0.193634361" green="0.094645827676115152" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnStart_Game:" destination="UQ0-ko-SOG" eventType="touchUpInside" id="Yp5-pB-wgs"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="uAV-sm-DoE"/>
                                 </connections>
                             </button>
@@ -226,7 +231,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uAV-sm-DoE"/>
+        <segue reference="Wpe-r6-LLJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Capture d’écran 2023-05-16 à 15.01.10" width="646" height="422"/>
