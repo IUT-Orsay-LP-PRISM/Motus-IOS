@@ -7,7 +7,6 @@
 
 import Foundation
 class Game {
-    public static let wordLibrary: [String] = ["BANANA"] //, "run", "why"]
     public static var chosenWord: String = "";
     public static var matchWordArray: [Character] = []
     public static var checkValuesArray: [Int] = []
@@ -15,13 +14,22 @@ class Game {
     public static var words : [String] = []
     public static var lapCounter = 0
     public static var SavecheckValuesGame: [[Int]] = []
+    public static var level : Int = 1
     
     // initialiseMatch() : initialisation = choix du mot, affectation des arrays matchWorkArray et
     // checkValuesArray
     // Retourne void
     public static func initialiseMatch(){
-        // Choix du mot de la partie
-        chosenWord = wordLibrary.randomElement()!
+        
+        
+        // Affectation de l'ensemble des mots dans le dictionnaire globale des variables
+        ListOfWords.initDictionnaryArray();
+        
+        // Sélection du dictionnaire réduit en fonction des valeurs choisies par l'utilisateur
+        ListOfWords.reducedDictionaryByNumberOfLetters(minimumNumberOfLetters : level*2-2,maximumNumberOfLetters : level*2)
+        
+        // Sélection d'un mot au hazard pioché du dictionnaire de mots réduit
+        self.chosenWord = ListOfWords.reducedDictionary.randomElement()!
         
         // Mot du match convertie en Array de caractères
         matchWordArray = tablify(word: chosenWord)
