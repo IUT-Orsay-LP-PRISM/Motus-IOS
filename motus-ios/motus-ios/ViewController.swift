@@ -19,8 +19,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var data : [String] = []
     
- 
-        
+
+    @IBAction func replay(_ sender: Any) {
+        Game.initialiseMatch()
+        pushBtn.isEnabled = true
+        inputWord.isEnabled = true
+        labelError.text! = ""
+        viewDidLoad()
+    }
+    
+    @IBAction func btnPlay_StartGame(_ sender: Any) {
+        Game.initialiseMatch()
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,10 +55,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             defaultWords.append(defaultWord)
         }
         Game.setWords(newWords: defaultWords)
+
         
         // Avoir l'affichage
         createTable(words: Game.getWords())
-        
     }
     
    
