@@ -28,5 +28,6 @@ class HomeController: UIViewController {
             Game.level = 1
         }
         Game.initialiseMatch()
+        
     }
 }
