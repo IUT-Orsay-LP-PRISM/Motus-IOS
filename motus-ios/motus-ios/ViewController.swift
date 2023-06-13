@@ -86,7 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             // Si le nombre d'essais est dépassé
             if(lapCounter <= 6) {
-                let word = inputWord.text!.uppercased()
+                let word = inputWord.text!.uppercased().folding(options: .diacriticInsensitive, locale: .current)
                 gameWon = Game.checkInput(inputWord: word)
                 if(gameWon){
                     labelError.text! = "Vous avez gagné"
